@@ -1,0 +1,26 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+  - name: Run the command if the specified file does not exist.
+    command: yum-config-manager --add-repo https://docs.docker.com/engine/installation/linux/repo_files/centos/docker.repo
+
+  - name: Install packages for Docker
+    yum: name={{ item }} state=present
+    with_items:
+    - net-tools
+    - vim
+    - yum-utils
+    - bash-completion
+
+  - name: make cache fast
+    command: yum makecache fast
+
+  - name: Install docker-engine
+    yum: name=docker-engine state=present
+
+  - name: start the docker daemon
+    service:
+      name: docker
+      state: started
