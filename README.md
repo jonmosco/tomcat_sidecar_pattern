@@ -1,4 +1,4 @@
-####Tomcat application deployment container
+##Tomcat application deployment container
 
 ###This is a POC that puts the sidecar container pattern to use
 
