@@ -3,10 +3,18 @@ version: '2'
 services:
 
   sidecar_war:
-    image: sidecar
+    build: ./sidecar
+    # uncomment image if building manually
+    # image: sidecar
+    # Docker requires a process running in the foreground, otherwise
+    # it thinks the app has stopped and shuts down the container
+    # This does not run in the foreground, because its a simple container
+    # with a war, so we solve this by tailing /dev/null
     command: tail -f /dev/null
   web:
-    image: tomcat_sidecar_01
+    build: server
+    # uncomment image if building manually
+    # image: tomcat_sidecar_01
     ports:
       - 8081:8080
     volumes_from:
