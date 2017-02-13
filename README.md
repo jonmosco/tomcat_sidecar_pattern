@@ -28,7 +28,11 @@ Build the image:
 $ docker buid sidecar/
 
 Run the container:
+```
 $ docker run -t -i --name sidecar_test sidecar_war
+```
 
 Keep the container running:
+```
 $ docker run -d --name sidecar_test03 sidecar_war tail -f /dev/null
+```
