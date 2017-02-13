@@ -12,7 +12,7 @@ services:
     # with a war, so we solve this by tailing /dev/null
     command: tail -f /dev/null
   web:
-    build: server
+    build: ./server
     # uncomment image if building manually
     # image: tomcat_sidecar_01
     ports:
