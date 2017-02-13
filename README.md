@@ -17,6 +17,10 @@ comes with Vagrantfile VM on CentOS 7 with the latest Docker engine.
 ###Server Container
 
 ```docker
+FROM tomcat:8.0-jre8
+
+# Mount point for the sidecar container
+VOLUME [ "/usr/local/tomcat/webapps" ]
 ```
 ###Side Container
 
@@ -37,7 +41,7 @@ Keep the container running:
 $ docker run -d --name sidecar_test03 sidecar_war tail -f /dev/null
 ```
 
-Build the stacl:
+Build the stack:
 ```
 $ docker run --name sample_app05 --volumes-from sidecar_test -d  -p 8080:8080  tomcat_server0
 ```
