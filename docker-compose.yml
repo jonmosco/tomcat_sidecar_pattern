@@ -8,6 +8,6 @@ services:
   web:
     image: tomcat_sidecar_01
     ports:
-      - 8080:8082
+      - 8081:8080
     volumes_from:
       - sidecar_war
