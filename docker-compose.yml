@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+
+  sidecar_war:
+    image: sidecar
+    command: tail -f /dev/null
+  web:
+    image: tomcat_sidecar_01
+    ports:
+      - 8080:8080
+    volumes_from:
+      - sidecar_war

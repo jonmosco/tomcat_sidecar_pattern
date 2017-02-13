@@ -36,3 +36,12 @@ Keep the container running:
 ```
 $ docker run -d --name sidecar_test03 sidecar_war tail -f /dev/null
 ```
+
+Build the stacl:
+```
+$ docker run --name sample_app05 --volumes-from sidecar_test -d  -p 8080:8080  tomcat_server0
+```
+
+###Docker Compose
+
+This example app deployment also includes a docker-compose.yml
