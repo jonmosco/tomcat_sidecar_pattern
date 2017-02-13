@@ -9,6 +9,11 @@ inside the tomcat container in /usr/local/tomcat/webapps/
 
 https://www.usenix.org/system/files/conference/hotcloud16/hotcloud16_burns.pdf
 
+###Vagrant environment
+
+This image can run locally as long as the docker engine is isntalled, and
+comes with Vagrantfile VM on CentOS 7 with the latest Docker engine.
+
 ###Server Container
 
 ```docker
@@ -25,5 +30,5 @@ $ docker buid sidecar/
 Run the container:
 $ docker run -t -i --name sidecar_test sidecar_war
 
-Image specs
-busybox for the base image
+Keep the container running:
+$ docker run -d --name sidecar_test03 sidecar_war tail -f /dev/null
