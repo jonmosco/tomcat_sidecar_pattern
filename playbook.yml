@@ -21,10 +21,13 @@
     yum: name=docker-engine state=present
 
   - name: Install docker-compose
-    command: curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    shell: curl -L "https://github.com/docker/compose/releases/download/1.10.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
   - name: Fix compose permissions
-    command: chmod +x /usr/local/bin/docker-compose
+    file:
+      path: /usr/local/bin/docker-compose
+      mode: 0755
+
 
   - name: start the docker daemon
     service:
